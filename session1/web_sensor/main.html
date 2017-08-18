@@ -9,7 +9,8 @@ function callback(tempStr, status){
 	if (status == "success") {
 		temp = parseFloat(tempStr).toFixed(2);
 		g.refresh(temp);
-		setTimeout(getReading, 1000);
+		setTimeout(getReading, 10000);
+		g.refresh(60);
 	}
 	else {
 		alert("There was a problem");

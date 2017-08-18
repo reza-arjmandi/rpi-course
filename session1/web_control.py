@@ -27,6 +27,7 @@ def update_leds():
     for i, value in enumerate(led_states):
         GPIO.output(led_pins[i], value)
 
+
 @route('/')
 @route('/<led>')
 def index(led="n"):
