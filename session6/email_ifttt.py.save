@@ -1,0 +1,32 @@
+import time,os,urllib,urllib2
+import socket
+import socks
+
+Max_Temp=37.0
+Event='cpu_too_hot'
+Base_Url='https://maker.ifttt.com/trigger/{event}/with/key/cxotxZpzCKtUnd3m7tkIk4'
+key='cxotxZpzCKtUnd3m7tkIk4'
+
+def send_notification(temp):
+    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 9050)
+    socket.socket = socks.socksocket
+    js=urllib.urlencode({'value1' : str(temp)})
+    url=Base_Url +Event+'/with/key/' + key
+    response=urllib2.urlopen(url=url,data=js)
+    print(response.read())
+
+def cpu_temp():
+    dev=os.popen('/opt/vc/bin/vcgencmd measure_temp')
+    cpu_temp=dev.read()[5:-3]
+    return float(cpu_temp)
+
+while True:
+    temp=cpu_temp()
+    print("CPU Temp(c) : " + str(temp))
+    if temp>Max_Temp:
+        print("CPU TOO Hot!")
+        send_notification(temp)
+        print("No more notification for : " + str(Min_T_Between_Warnings))
+        time.sleep(Min_T_Between_Warnings)
+
+    time.sleep(1)

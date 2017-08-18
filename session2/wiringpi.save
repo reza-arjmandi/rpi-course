@@ -1,0 +1,13 @@
+sudo gpio -g mode 18 pwm
+var=0
+while true ; do
+        sudo gpio -g pwm 18 $var
+        echo "pwm : $var"
+        sleep 0.1
+        sudo gpio -g pwm 18 var
+        echo "pwm : $var"
+        sleep 0.1
+	lq
+et var = var + 1
+done
+
