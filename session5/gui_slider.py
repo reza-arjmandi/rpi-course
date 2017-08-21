@@ -10,12 +10,9 @@ pwm.start(100)
 class App:
 	
     def __init__(self, master):
-        frame = Frame(master)
-        frame.pack()
-        scale = Scale(frame, from_=0, to=100, 
+        scale = Scale(master, from_=0, to=100, 
               orient=HORIZONTAL, command=self.update)
-        scale.grid(row=0)
-
+        scale.pack(expand=True, fill=BOTH, padx=20, pady=20)
 
     def update(self, duty):
         pwm.ChangeDutyCycle(float(duty))
@@ -23,6 +20,6 @@ class App:
 root = Tk()
 root.wm_title('PWM Power Control')
 app = App(root)
-root.geometry("200x50+0+0")
+root.geometry("500x100+390+310")
 root.mainloop()
 
