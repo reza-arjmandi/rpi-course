@@ -29,12 +29,12 @@ class MyGui(QtGui.QWidget):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         QtCore.QObject.connect(self.ui.dial, QtCore.SIGNAL('valueChanged(int)'), self.dialHandler)
-        QtCore.QObject.connect(self.ui.CWButton, QtCore.SIGNAL('clicked(bool)'), self.CWHandler)
+        QtCore.QObject.connect(self.ui.CWButton, QtCore.SIGNAL('toggled(bool)'), self.CWHandler)
 
     def dialHandler(self, value):
         self.ui.progressBar.setValue(value)
         self.ui.lcdNumber.display(value)
-        pwm.ChangeDutyCycle(value)
+        pwm.ChangeDutyCycle(int(value))
 
     def CWHandler(self, value):
         if(value == True):
@@ -44,6 +44,7 @@ class MyGui(QtGui.QWidget):
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
+    clockwise()
     form = MyGui()
     form.show()
     sys.exit(app.exec_())

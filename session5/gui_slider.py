@@ -4,8 +4,9 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(18, GPIO.OUT)
+
 pwm = GPIO.PWM(18, 500)
-pwm.start(100)
+pwm.start(0)
 
 class App:
 	
@@ -20,6 +21,6 @@ class App:
 root = Tk()
 root.wm_title('PWM Power Control')
 app = App(root)
-root.geometry("500x100+390+310")
+root.geometry("500x100+0+0")
 root.mainloop()
 

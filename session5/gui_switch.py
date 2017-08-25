@@ -8,8 +8,8 @@ GPIO.setup(18, GPIO.OUT)
 class App:
 	
     def __init__(self, master):
-        frame = Frame(master)
-        frame.pack()
+	frame = Frame(master)
+	frame.pack(pady=10)
         self.check_var = BooleanVar()
         check = Checkbutton(frame, text='Pin 18', 
                  command=self.update,
