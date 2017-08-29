@@ -1,19 +1,26 @@
+######################################################################
+#	WebSensor.py
+#
+# This program measure Raspberry pi cpu temprature and run web
+# application and visualize it with a guage.
+######################################################################
+
 import os, time
 from bottle import route, run, template
 
-def cpu_temp():
+def CpuTemp():
     dev = os.popen('/opt/vc/bin/vcgencmd measure_temp')
-    cpu_temp = dev.read()[5:-3]
-    return cpu_temp
+    temp = dev.read()[5:-3]
+    return temp
 
 @route('/temp')
-def temp():
-    return cpu_temp()
-	
+def Temp():
+    return CpuTemp()
+
 @route('/')
 def index():
 	return template('main.html')
-	
+
 @route('/raphael')
 def index():
 	return template('raphael.2.1.0.min.js')

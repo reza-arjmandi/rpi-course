@@ -1,13 +1,13 @@
 ######################################################################
-#	cpu_temp.py
+#	CpuTemp.py
 #
 # This program measure Raspberry pi cpu temprature and print it 
 # every one second
-#####################################################################
+######################################################################
 
 import os, time
 
-cmd='/opt/vc/bin/vcgencmd measure_temp'
+cmd = '/opt/vc/bin/vcgencmd measure_temp'
 
 while True:
     dev = os.popen(cmd)
