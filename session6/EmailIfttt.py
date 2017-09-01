@@ -8,7 +8,7 @@
 import time,os
 
 MaxTemp = 37.0
-EventName = 'hot_cpu'
+EventName = 'cpu_hot'
 BaseUrl = 'https://maker.ifttt.com/trigger/{}/with/key/{}'
 Key = 'cxotxZpzCKtUnd3m7tkIk4'
 

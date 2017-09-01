@@ -9,7 +9,7 @@ import time, os, urllib, urllib2
 
 DELAY = 15
 BASEURL = 'https://api.thingspeak.com/update?api_key={}&field1={}'
-KEY = '7ZJO38PBX7NFQH8K'
+KEY = 'SNDA3NE8T2I3A5W1'
 
 def sendData(temp):
 	completeUrl = BASEURL.format(KEY, temp)
