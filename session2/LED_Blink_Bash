@@ -1,7 +1,10 @@
 #!/bin/bash
+
 ######################################################################
-#  Mastering the Raspberry Pi, ISBN13: 978-1-484201-82-4
-#  Warren W. Gay VE3WWG
+#       LED_Blink_Bash
+#
+# This program get gpio number as input and then blink the LED that 
+# connected to it
 ######################################################################
 
 GPIO="$1"
@@ -9,28 +12,24 @@ SYS=/sys/class/gpio
 DEV=/sys/class/gpio/gpio$GPIO
 
 if [ ! -d $DEV ] ; then
-	# Make pin visible
 	echo $GPIO >$SYS/export	
 fi
 
 # Set pin to output
 echo out >$DEV/direction
 
-function put() {
+function SetValue()
+{
 	# Set value of pin (1 or 0)
 	echo $1 >$DEV/value
 }
 
 # Main loop:
 while true ; do
-	put 1
+	SetValue 1
 	echo "GPIO $GPIO: on"
-	#sleep 1
-	put 0
+	sleep 1
+	SetValue 0
 	echo "GPIO $GPIO: off  $(date)"
-	#sleep 1
+	sleep 1
 done
-
-######################################################################
-#  End gp.  Public Domain license.
-######################################################################

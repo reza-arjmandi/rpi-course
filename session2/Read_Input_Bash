@@ -1,0 +1,63 @@
+#!/bin/bash
+
+######################################################################
+#       Read_Input
+#
+# This program configure INP gpio pin as input and OUT gpio pin 
+# as output, then read INP pin and set it state to OUT pin.
+######################################################################
+
+INP=4       # Read from GPIO 4 
+OUT=18        # Write to GPIO 18
+
+set -eu
+trap "ReleaseAllGPIO" 0
+
+function ReleaseAllGPIO()
+{
+  ReleaseGPIO $INP
+  ReleaseGPIO $OUT
+}
+
+function SetGPIOMode()
+{
+  dev=$SYS/gpio$1
+  if [ ! -d $dev ] ; then
+    echo $1 >$SYS/export 
+  fi
+    echo $2 >$dev/direction
+}
+
+function ReleaseGPIO()
+{
+  echo $1 >$SYS/unexport
+}
+
+function SetValue()
+{
+  echo $2 >$SYS/gpio$1/value
+}
+
+function ReadValue()
+{
+  read BIT < $SYS/gpio$1/value
+  echo $BIT
+}
+
+count=0
+SYS=/sys/class/gpio
+
+SetGPIOMode $INP in
+SetGPIOMode $OUT out
+SetValue $OUT 1
+LBIT=2
+
+while true ; do
+  RBIT=$(ReadValue $INP)
+  if [ $RBIT -ne $LBIT ] ; then
+    SetValue $OUT $RBIT
+    printf "%04d Status: %d\n" $count $RBIT
+    LBIT=$RBIT
+    let count=count+1
+  fi
+done
