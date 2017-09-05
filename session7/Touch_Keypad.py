@@ -1,3 +1,9 @@
+######################################################################
+#       Touch_Keypad.py
+#
+# This program read touch keypad and print lable of pressed button
+######################################################################
+
 import RPi.GPIO as GPIO
 import time
 
@@ -14,12 +20,11 @@ def ReadKeyPad():
 		GPIO.output(18, 1)
 	return keyState
 
-LastKey = -1
+lastKey = -1
 while 1:
 	key = ReadKeyPad()
-	if(key != LastKey and key > 0):
+	if(key != lastKey and key > 0):
 		print(key)
-		LastKey = key
+		lastKey = key
 	time.sleep(0.1)
-	
 
