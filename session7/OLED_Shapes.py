@@ -50,8 +50,8 @@ x += shapeWidth + padding
 draw.rectangle((x, top, x+shapeWidth, bottom), outline = 255, fill = 0)
 x += shapeWidth + padding
 # Draw a triangle.
-draw.polygon([(x, bottom), (x + shape_width / 2, top), (x + shapeWidth, bottom)], outline = 255, fill = 0)
-x += shape_width + padding
+draw.polygon([(x, bottom), (x + shapeWidth / 2, top), (x + shapeWidth, bottom)], outline = 255, fill = 0)
+x += shapeWidth + padding
 # Draw an X.
 draw.line((x, bottom, x + shapeWidth, top), fill = 255)
 draw.line((x, top, x + shapeWidth, bottom), fill = 255)

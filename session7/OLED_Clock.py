@@ -21,8 +21,8 @@ width = device.width
 height = device.height
 
 fontFile = '/usr/share/fonts/truetype/freefont/FreeSansBold.ttf'
-smallFont = ImageFont.truetype('FreeSans.ttf', 12, filename=fontFile)
-largeFont = ImageFont.truetype('FreeSans.ttf', 33, filename=fontFile)
+smallFont = ImageFont.truetype(fontFile, 12)
+largeFont = ImageFont.truetype(fontFile, 33)
 
 # Display a message on 3 lines, first line big font        
 def DisplayMessage(line1, line2):
