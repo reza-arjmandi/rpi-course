@@ -3,7 +3,7 @@
 ######################################################################
 #       LED_Blink_Bash
 #
-# This program get gpio number as input and then blink the LED that 
+# This program get gpio number as input and then blink the LED that
 # connected to it
 ######################################################################
 
