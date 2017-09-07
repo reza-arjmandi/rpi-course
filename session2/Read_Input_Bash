@@ -7,7 +7,6 @@
 # as output, then read INP pin and set it state to OUT pin.
 ######################################################################
 
-AL0="${1:-0}" #1=active_low else 0
 INP=17       # Read from GPIO 17 
 OUT=18        # Write to GPIO 18
 
@@ -28,7 +27,6 @@ function SetGPIOMode()
   fi
   echo $2 >$dev/direction
   echo none >$dev/edge
-  echo $AL0 >$dev/active_low
 }
 
 function ReleaseGPIO()
