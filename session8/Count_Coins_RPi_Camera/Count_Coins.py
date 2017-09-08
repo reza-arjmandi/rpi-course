@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
-import sys
-import CaptureDevice
+import CaptureDeviceRPiCamera
 
 try:
     import cv2.cv as cv
@@ -26,7 +25,7 @@ def CountCoins(img, cimg):
         cv2.circle(cimg, (i[0], i[1]), 2, (0, 0, 255), 3)
 
 if __name__ == "__main__":
-    captureDevice = CaptureDevice.CaptureDevice(sys.argv[1], sys.argv[2])
+    captureDevice = CaptureDeviceRPiCamera.CaptureDeviceRPiCamera((320, 240), 32)
     while(True):
         img = captureDevice.GrabFrame(True)
         img = cv2.medianBlur(img, 5)
