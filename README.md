@@ -1,4 +1,4 @@
-[![C++ Core Guidelines](10Th raspberry pi course.jpg)](https://evnd.co/CCWuE)
+[![10Th Raspberry Pi Course](10Th_Raspberry_Pi_Course.jpg)](https://evnd.co/CCWuE)
 # rpi-course
 Raspberry Pi course projects
 
