@@ -1,6 +1,5 @@
 import cv2
 import CaptureDeviceRPiCamera
-import sys
 
 faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 eyeCascade = cv2.CascadeClassifier('haarcascade_eye.xml')
@@ -17,7 +16,7 @@ def DetectFacesAndEyes(mat):
             cv2.rectangle(roiColor, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
 
 if __name__ == "__main__":
-    device = CaptureDeviceRPiCamera.CaptureDeviceRPiCamera(sys.argv[1], sys.argv[2])
+    device = CaptureDeviceRPiCamera.CaptureDeviceRPiCamera((320, 240), 32)
     while(True):
         frame = device.GrabFrame(False)
         DetectFacesAndEyes(frame)

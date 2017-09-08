@@ -9,13 +9,12 @@ class CaptureDeviceRPiCamera:
         camera = PiCamera()
         camera.resolution = frameSize
         camera.framerate = frameRate
-        rawCapture = PiRGBArray(camera, size=frameSize)
-        self.bufferIter = camera.capture_continuous(rawCapture, format="bgr", use_video_port=True)
-        self.framCount = 0;
+        self.rawCapture = PiRGBArray(camera, size=frameSize)
+        self.bufferIter = camera.capture_continuous(self.rawCapture, format="bgr", use_video_port=True)
 
     def GrabFrame(self, gray):
-        mat = self.bufferIter[0].array
-        self.frameCount +=1
+        mat = self.bufferIter.next().array
+	self.rawCapture.truncate(0)
         if(not gray):
             return mat
 
