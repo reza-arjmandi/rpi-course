@@ -1,8 +1,11 @@
 import cv2
-import cv2.cv as cv
 import numpy as np
 import sys
 import CaptureDevice
+
+try:
+    import cv2.cv as cv
+except: pass
 
 def CountCoins(img, cimg):
     circles = None
