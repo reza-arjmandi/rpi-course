@@ -3,6 +3,7 @@
 #
 # This program control speed and direction of motor DC with L298
 # chip
+# Run this program with python3. eg: sudo python3 Motor_L298.py
 ######################################################################
 
 import RPi.GPIO as GPIO
