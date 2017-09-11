@@ -1,3 +1,10 @@
+######################################################################
+#       CaptureDeviceRPiCamera.py
+#
+# CaptureDeviceRPiCamera class can grabing frame from 
+# raspberry pi camera.
+######################################################################
+
 from picamera import PiCamera
 from picamera.array import PiRGBArray
 from PIL import Image

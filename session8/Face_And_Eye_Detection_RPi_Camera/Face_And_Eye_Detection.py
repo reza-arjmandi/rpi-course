@@ -1,3 +1,10 @@
+######################################################################
+#       Face_And_Eye_Detection.py
+#
+# This program detect faces and eyes and draw a blue rectangle  
+# around the face and draw a green rectangle around the eyes.
+######################################################################
+
 import cv2
 import CaptureDeviceRPiCamera
 

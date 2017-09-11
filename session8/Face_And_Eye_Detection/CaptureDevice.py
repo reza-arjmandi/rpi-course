@@ -1,3 +1,10 @@
+######################################################################
+#       CaptureDevice.py
+#
+# CaptureDevice class can grabing frame from video file, 
+# image file or webcam.
+######################################################################
+
 import cv2
 
 class CaptureDevice:

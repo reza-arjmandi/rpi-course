@@ -1,3 +1,9 @@
+######################################################################
+#       Count_Coins.py
+#
+# This program can detect circles and counting the coins.
+######################################################################
+
 import cv2
 import numpy as np
 import CaptureDeviceRPiCamera
