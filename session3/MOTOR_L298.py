@@ -1,35 +1,41 @@
+######################################################################
+#       Motor_L298.py
+#
+# This program control speed and direction of motor DC with L298
+# chip
+######################################################################
+
 import RPi.GPIO as GPIO
 import time
 
-enable_pin=18
-in_pin1=23
-in_pin2=24
+enablePin = 18
+inPin1 = 23
+inPin2 = 24
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(enable_pin,GPIO.OUT)
-GPIO.setup(in_pin1,GPIO.OUT)
-GPIO.setup(in_pin2,GPIO.OUT)
+GPIO.setup(enablePin, GPIO.OUT)
+GPIO.setup(inPin1, GPIO.OUT)
+GPIO.setup(inPin2, GPIO.OUT)
 
-pwm=GPIO.PWM(enable_pin,500)
+pwm = GPIO.PWM(enablePin, 500)
 pwm.start(0)
 
-def clockwise():
-    GPIO.output(in_pin1,True)
-    GPIO.output(in_pin2,False)
+def Clockwise():
+    GPIO.output(inPin1, True)
+    GPIO.output(inPin2, False)
 
-def counter_clockwise():
-    GPIO.output(in_pin1,False)
-    GPIO.output(in_pin2,True)
+def CounterClockwise():
+    GPIO.output(inPin1, False)
+    GPIO.output(inPin2, True)
 
 while True:
-    cmd=input("command f/r 0..9 e.g. f5: ")
-    direction=cmd[0]
+    cmd = input("command f/r 0..9 e.g. f5: ")
+    direction = cmd[0]
 
-    if (direction=="f"):
-        clockwise()
+    if (direction == "f"):
+        Clockwise()
     else:
-        counter_clockwise()
+        CounterClockwise()
 
-    speed=int(cmd[1]) *10
+    speed = int(cmd[1]) * 10
     pwm.ChangeDutyCycle(speed)
-        

@@ -1,15 +1,22 @@
+######################################################################
+#       PWM_LED.py
+#
+# This program produce a pwm and control light exposure of an LED
+# with changing it's duty cycle
+######################################################################
+
 import RPi.GPIO as GPIO
 
-led_pin=18
+ledPin = 18
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(led_pin,GPIO.OUT)
+GPIO.setup(ledPin, GPIO.OUT)
 
-pwm_led=GPIO.PWM(led_pin,100)
-pwm_led.start(100)
+pwmLed = GPIO.PWM(ledPin, 100)
+pwmLed.start(100)
 
 while(True):
-    duty_s=input("Please Enter Brightness(0 to 100): ")
-    duty=int(duty_s)
-    pwm_led.ChangeDutyCycle(duty)
+    dutyStr = input("Please Enter Brightness(0 to 100): ")
+    duty = int(dutyStr)
+    pwmLed.ChangeDutyCycle(duty)
     
