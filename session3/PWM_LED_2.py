@@ -18,12 +18,12 @@ ledPwm = GPIO.PWM(ledPin, 50)
 ledPwm.start(100)
 
 while(True):
+    print("Increase Mode")
     for i in range(0, 100):
         ledPwm.ChangeDutyCycle(i)
-        print("Intensity: ", i)
-        time.sleep(0.1)
-        
+	time.sleep(0.01)
+
+    print("Decrease Mode")
     for i in range(100, 0, -1):
         ledPwm.ChangeDutyCycle(i)
-        print("Intensity: ", i)
-        time.sleep(0.1)
+	time.sleep(0.01)
