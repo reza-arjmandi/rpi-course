@@ -1,6 +1,12 @@
+######################################################################
+#       Simple_Webserver.py
+#
+# This snippet code demonstrate a simple web application
+# that run with bottle web sever 
+######################################################################
+
 from bottle import route,run,template
 from datetime import datetime
-
 
 @route('/') 
 def index():    

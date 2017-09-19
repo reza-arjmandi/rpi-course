@@ -1,41 +1,47 @@
+######################################################################
+#       Web_Control.py
+#
+# This program control 3 LED and read button status with
+# a web interface
+######################################################################
+
 from bottle import route, run
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
-led_pins = [18, 23, 24]
-led_states = [0, 0, 0]
-switch_pin = 25
+LedPins = [18, 23, 24]
+LedStates = [0, 0, 0]
+SwitchPin = 25
 
-GPIO.setup(led_pins[0], GPIO.OUT)
-GPIO.setup(led_pins[1], GPIO.OUT)
-GPIO.setup(led_pins[2], GPIO.OUT)
-GPIO.setup(switch_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(LedPins[0], GPIO.OUT)
+GPIO.setup(LedPins[1], GPIO.OUT)
+GPIO.setup(LedPins[2], GPIO.OUT)
+GPIO.setup(SwitchPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-def switch_status():
-    state = GPIO.input(switch_pin)
+def GetSwitchStatus():
+    state = GPIO.input(SwitchPin)
     if state:
         return 'Up'
     else:
         return 'Down'
 
-def html_for_led(led):
+def HtmlForLed(led):
     l = str(led)
     result = " <input type='button' onClick='changed(" + l + ")' value='LED " + l + "'/>"
     return result
 
-def update_leds():
-    for i, value in enumerate(led_states):
-        GPIO.output(led_pins[i], value)
-
+def UpdateLeds():
+    for i, value in enumerate(LedStates):
+        GPIO.output(LedPins[i], value)
 
 @route('/')
 @route('/<led>')
 def index(led="n"):
     print(led)
     if led != "n":
-        led_num = int(led)
-        led_states[led_num] = not led_states[led_num]
-        update_leds()
+        LedNum = int(led)
+        LedStates[LedNum] = not LedStates[LedNum]
+        UpdateLeds()
     response = "<script>"
     response += "function changed(led)"
     response += "{"
@@ -44,11 +50,11 @@ def index(led="n"):
     response += "</script>"
     
     response += '<h1>GPIO Control</h1>'
-    response += '<h2>Button=' + switch_status() + '</h2>'
+    response += '<h2>Button=' + GetSwitchStatus() + '</h2>'
     response += '<h2>LEDs</h2>'
-    response += html_for_led(0) 
-    response += html_for_led(1) 
-    response += html_for_led(2) 
+    response += HtmlForLed(0) 
+    response += HtmlForLed(1) 
+    response += HtmlForLed(2) 
     return response
 
 run(host='192.168.43.189', port=90)
