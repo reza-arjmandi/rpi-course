@@ -14,4 +14,4 @@ def index():
     time = "{:%Y-%m-%d %H:%M:%S}".format(dt)    
     return template('<b>Pi thinks the date/time is: {{t}}</b>',t=time)
 
-run(host='192.168.43.189', port=90) 
+run(host = '0.0.0.0', port = 80) 

@@ -30,6 +30,7 @@ counter = 0
 while(1):
     if(GPIO.input(18) == 0):
         print("Danger!!!!!!")
+	print("sending email...")
         SendEmail('arjmandi.re@gmail.com', 'Danger: home security!', 'Button Pressed-number: ' + str(counter))
         print("send complete")
         counter = counter + 1
