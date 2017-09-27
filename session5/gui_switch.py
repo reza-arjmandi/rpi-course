@@ -1,3 +1,9 @@
+######################################################################
+#       Gui_Switch.py
+#
+# This program create a checkBox and control a LED. 
+######################################################################
+
 from Tkinter import *
 import RPi.GPIO as GPIO
 import time
@@ -6,15 +12,14 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(18, GPIO.OUT)
 
 class App:
-	
     def __init__(self, master):
 	frame = Frame(master)
-	frame.pack(pady=10)
+	frame.pack(pady = 10)
         self.check_var = BooleanVar()
-        check = Checkbutton(frame, text='Pin 18', 
-                 command=self.update,
-                 variable=self.check_var, onvalue=True, offvalue=False)
-        check.grid(row=1)
+        check = Checkbutton(frame, text = 'Pin 18', 
+                 command = self.update,
+                 variable = self.check_var, onvalue = True, offvalue = False)
+        check.grid(row = 1)
 
     def update(self):
         GPIO.output(18, self.check_var.get())

@@ -1,3 +1,10 @@
+######################################################################
+#       Gui_Slider_RGB_LED.py
+#
+# This program create three slider for control duty cycle of three 
+# pwm wave for controlling color of RGB LED. 
+######################################################################
+
 from Tkinter import *
 import RPi.GPIO as GPIO
 import time
@@ -17,7 +24,6 @@ pwmBlue = GPIO.PWM(24, 500)
 pwmBlue.start(100)
 
 class App:
-	
     def __init__(self, master):
         frame = Frame(master)
         frame.pack()
