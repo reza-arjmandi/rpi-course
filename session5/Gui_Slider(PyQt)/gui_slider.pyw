@@ -1,3 +1,10 @@
+######################################################################
+#       Gui_Slider.py
+#
+# This program create a slider and control duty cycle of pwm for
+# controlling light of LED or speed of DC motor.(PyQT framework) 
+######################################################################
+
 import sys 
 import RPi.GPIO as GPIO
 from gui_slider import * 

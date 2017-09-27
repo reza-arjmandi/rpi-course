@@ -1,3 +1,9 @@
+######################################################################
+#       Gui_Switch.py
+#
+# This program create a checkBox and control a LED.(PyQt framework) 
+######################################################################
+
 import sys 
 import RPi.GPIO as GPIO
 from gui_switch import * 
@@ -12,7 +18,6 @@ class MyForm(QtGui.QDialog):
 		self.ui.setupUi(self)    
 		QtCore.QObject.connect(self.ui.checkBox, QtCore.SIGNAL('clicked(bool)'),self.ToggleLED)  
 		
-	
 	def ToggleLED(self, value):      
 		GPIO.output(18, value)
 		
