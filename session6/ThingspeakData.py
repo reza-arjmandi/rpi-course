@@ -11,18 +11,18 @@ DELAY = 15
 BASEURL = 'https://api.thingspeak.com/update?api_key={}&field1={}'
 KEY = 'SNDA3NE8T2I3A5W1'
 
-def sendData(temp):
+def SendData(temp):
 	completeUrl = BASEURL.format(KEY, temp)
     	response = urllib2.urlopen(url=completeUrl)
     	print(response.read())
 
-def cpuTemp():
+def CpuTemp():
     dev = os.popen('/opt/vc/bin/vcgencmd measure_temp')
     temperature = dev.read()[5:-3]
     return temperature
 
 while True:
-    temp = cpuTemp()
+    temp = CpuTemp()
     print("CPU Temp (C): {}".format(temp))
-    sendData(temp)
+    SendData(temp)
     time.sleep(DELAY)
