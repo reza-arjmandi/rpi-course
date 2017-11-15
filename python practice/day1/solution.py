@@ -1,7 +1,11 @@
-import sys
+i = 4
+d = 4.0
+s = 'HackerRank '
 
-t = input()
+varInt = int(input())
+varReal = float(input())
+varStr = str(input())
 
-print("Hello word")
-
-print(t)
+print(i + varInt)
+print(str(d + varReal).format("{:.1f}"))
+print( s + varStr )
