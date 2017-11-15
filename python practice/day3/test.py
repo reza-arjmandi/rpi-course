@@ -3,14 +3,27 @@ from subprocess import Popen, PIPE, STDOUT
 import string
 import random
 
-def string_generator(size=6, chars=string.ascii_uppercase + string.digits + " " + string.punctuation):
-    return ''.join(random.choice(chars) for _ in range(size))
+def int_generator(min=0, max=100000):
+    return random.randint(min, max)
 		
 def TestBase():
-    stdIn = string_generator()
+    stdIn = int_generator()
+    result = ""
+    if(stdIn % 2 != 0):
+        result = "Weird"
+	
+    if(stdIn % 2 == 0 and (stdIn>=2 and stdIn<=5)):
+        result = "Not Weird"
+	
+    if(stdIn % 2 == 0 and (stdIn>=6 and stdIn<=20)):
+        result = "Weird"
+
+    if(stdIn % 2 == 0 and stdIn>20):
+        result = "Not Weird"
+    
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
-    stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = "Hello word\r\n" + stdIn + "\r\n"
+    stdout = p.communicate(input=bytes(str(stdIn), encoding='utf-8'))[0]
+    expectedStdout = result + "\r\n"
     return (stdout.decode(), expectedStdout)
 	
 class test(unittest.TestCase): 
