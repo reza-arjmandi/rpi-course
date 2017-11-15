@@ -28,5 +28,9 @@ def index():
 @route('/justgage')
 def index():
 	return template('justgage.1.0.1.min.js')
+	
+@route('/jquery')
+def index():
+    return template('jquery.min.js')
 
 run(host='192.168.43.189', port=80)
