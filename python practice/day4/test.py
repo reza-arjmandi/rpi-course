@@ -7,53 +7,21 @@ def string_generator(size=6, chars=string.ascii_uppercase + string.digits + " " 
     return ''.join(random.choice(chars) for _ in range(size))
 		
 def TestBase():
-    stdIn = string_generator()
+    stdIn = "4\r\n-1\r\n10\r\n16\r\n18\r\n"
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = "Hello word\r\n" + stdIn + "\r\n"
+    expectedStdout = "Age is not valid, setting age to 0.\r\n"
+    expectedStdout += "You are young.\r\nYou are young.\r\n\r\n"
+    expectedStdout += "You are young.\r\nYou are a teenager.\r\n\r\n"
+    expectedStdout += "You are a teenager.\r\nYou are old.\r\n\r\n"
+    expectedStdout += "You are old.\r\nYou are old.\r\n\r\n"
     return (stdout.decode(), expectedStdout)
 	
 class test(unittest.TestCase): 
     
     def testCase1(self):
         result = TestBase()
-        self.assertEqual( result[0], result[1])
-		
-    def testCase2(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
-		
-    def testCase3(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
-		
-    def testCase4(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
-		
-    def testCase5(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
-		
-    def testCase6(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
-		
-    def testCase7(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
-	
-    def testCase8(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
-		
-    def testCase9(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
-		
-    def testCase10(self):
-        result = TestBase()
-        self.assertEqual( result[0], result[1])
+        self.assertEqual(result[0], result[1])
 
 if __name__ == '__main__':
     unittest.main()
