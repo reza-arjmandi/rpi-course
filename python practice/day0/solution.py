@@ -1,3 +1,3 @@
 input_data = input()
-print("Hello word")
+print("Hello, World.")
 print(input_data)
