@@ -10,7 +10,7 @@ def TestBase():
     stdIn = string_generator()
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = "Hello word\r\n" + stdIn + "\r\n"
+    expectedStdout = "Hello, World.\r\n" + stdIn + "\r\n"
     return (stdout.decode(), expectedStdout)
 	
 class test(unittest.TestCase): 
