@@ -1,3 +1,3 @@
-caption = input()
+input_data = input()
 print("Hello word")
-print(caption)
+print(input_data)
