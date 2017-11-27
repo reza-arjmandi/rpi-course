@@ -1,3 +1,3 @@
-caption = input()
-print("Hello word")
-print(caption)
+input_data = input()
+print("Hello, World.")
+print(input_data)

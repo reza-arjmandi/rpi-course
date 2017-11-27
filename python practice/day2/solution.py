@@ -8,4 +8,3 @@ tax = (mealCost * taxPercent)/100
 totalCost = mealCost + tax + tip
 
 print("The total meal cost is {} dollars.".format(round(totalCost)))
-
