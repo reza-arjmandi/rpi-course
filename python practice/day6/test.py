@@ -3,14 +3,36 @@ from subprocess import Popen, PIPE, STDOUT
 import string
 import random
 
-def string_generator(size=6, chars=string.ascii_uppercase + string.digits + " " + string.punctuation):
-    return ''.join(random.choice(chars) for _ in range(size))
-		
+def stringMaker(minSize=2, maxSize=10000, chars=string.ascii_uppercase + string.digits + " " + string.punctuation):
+    randomSize = random.randint(minSize , maxSize)
+    return ''.join(random.choice(chars) for _ in range(randomSize)) 
+
+
 def TestBase():
-    stdIn = string_generator()
+    T = 10    
+    ourIn = ''
+    strings = []
+    for i in range(T):
+        strings.insert(i,stringMaker())
+        ourIn += strings[i] + "\r\n"
+        
+    stdIn = str(T) + "\r\n" + ourIn
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = "Hello word\r\n" + stdIn + "\r\n"
+    
+    ourOut = ''
+    for i in range(T):
+        for j in range(0,len(strings[i]),2):
+            ourOut += strings[i][j]
+            
+        ourOut += " "
+        
+        for j in range(1,len(strings[i]),2):
+            ourOut += strings[i][j]
+            
+        ourOut += "\r\n"
+        
+    expectedStdout = ourOut
     return (stdout.decode(), expectedStdout)
 	
 class test(unittest.TestCase): 
