@@ -2,9 +2,6 @@ mealCost = float(input())
 tipPercent = int(input())
 taxPercent = int(input())
 
-tip = (mealCost * tipPercent)/100
-tax = (mealCost * taxPercent)/100
-
-totalCost = mealCost + tax + tip
+totalCost = mealCost + (mealCost * tipPercent)/100 + (mealCost * taxPercent)/100
 
 print("The total meal cost is {} dollars.".format(round(totalCost)))
