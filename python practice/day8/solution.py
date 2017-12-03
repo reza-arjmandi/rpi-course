@@ -7,11 +7,11 @@ while numberOfInputs>0:
     numberOfInputs-=1
 
 query = []
-while True:
-   nameQuery = input()
-   if (nameQuery =='') :
-       break
-   query.append(nameQuery)
+try:
+    while(1):
+        query.append(input())   
+except:
+    pass
 
 for i in range(len(query)) :
     if query[i] in phoneBook :
