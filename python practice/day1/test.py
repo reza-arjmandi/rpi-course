@@ -2,6 +2,7 @@ import unittest
 from subprocess import Popen, PIPE, STDOUT
 import string
 import random
+import os
 
 def string_generator(size=6, chars=string.ascii_uppercase + string.digits + " " + string.punctuation):
     return ''.join(random.choice(chars) for _ in range(size))
@@ -20,10 +21,10 @@ def TestBase():
     d = 4.0
     s = 'HackerRank '
 
-    stdIn = str(randInt) + "\r\n" + str(randReal) + "\r\n" + str(randStr) + "\r\n"
+    stdIn = str(randInt) + os.linesep + str(randReal) + os.linesep + str(randStr) + os.linesep
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = str(randInt + i) + "\r\n" + str(randReal + d).format("{:0.1}") + "\r\n" + s + randStr + "\r\n"
+    expectedStdout = str(randInt + i) + os.linesep + str(randReal + d).format("{:0.1}") + os.linesep + s + randStr + os.linesep
     return (stdout.decode(), expectedStdout)
 
 class test(unittest.TestCase): 
