@@ -1,3 +1,4 @@
+import os
 import unittest
 from subprocess import Popen, PIPE, STDOUT
 import string
@@ -15,36 +16,36 @@ def phoneMaker():
 def TestBase():
     N = intMaker()
     ourIn = ''
-    ourIn = str(N)+"\r\n"
+    ourIn = str(N)+os.linesep
     validQuery = []
     phoneBook={}
     for i in range(N):
         name = stringMaker()
         number = phoneMaker()
         validQuery.insert(i,name)
-        ourIn += name + " " + number + "\r\n"
+        ourIn += name + " " + number + os.linesep
         phoneBook[name]=number
         
     query = []
     for i in range(len(validQuery)):
         query.append(validQuery[i])
-        ourIn += validQuery[i] + "\r\n"
+        ourIn += validQuery[i] + os.linesep
         
     for i in range(100000-len(validQuery)):
         s = stringMaker()
         query.append(s)
-        ourIn += s + "\r\n"
+        ourIn += s + os.linesep
         
     ourOut = ''
     for i in range(len(query)) :
 
         if query[i] in phoneBook :
-            ourOut += query[i]+"="+phoneBook[query[i]]+"\r\n"
+            ourOut += query[i]+"="+phoneBook[query[i]]+os.linesep
         else:
-            ourOut += "Not found\r\n"
+            ourOut += "Not found"+os.linesep
             
     stdIn = ourIn
-    p = Popen(['python', 'myPython.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
+    p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
 
     expectedStdout = ourOut
