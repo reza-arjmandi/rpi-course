@@ -1,16 +1,26 @@
+import os
 import unittest
 from subprocess import Popen, PIPE, STDOUT
-import string
 import random
 
-def string_generator(size=6, chars=string.ascii_uppercase + string.digits + " " + string.punctuation):
-    return ''.join(random.choice(chars) for _ in range(size))
+def intMaker(min = 1 , max = 1000000):
+    return random.randint(min,max)
 		
 def TestBase():
-    stdIn = string_generator()
+    decimal = intMaker()
+    binary = bin(decimal)
+    
+    parts = str(binary)[2:].split('0')
+    
+    max = 0
+    for part in parts:
+        if(len(part)>max):
+            max=len(part)
+
+    stdIn = str(decimal) + os.linesep
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = "Hello word\r\n" + stdIn + "\r\n"
+    expectedStdout = str(max) + os.linesep
     return (stdout.decode(), expectedStdout)
 	
 class test(unittest.TestCase): 
