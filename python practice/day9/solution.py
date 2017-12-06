@@ -1,7 +1,7 @@
-import sys
+def factorial(n):
+    if n == 2:
+        return 2
+    return n * factorial(n - 1)
 
-t = input()
 
-print("Hello word")
-
-print(t)
+print(factorial(int(input())))
