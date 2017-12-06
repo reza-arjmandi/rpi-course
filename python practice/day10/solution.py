@@ -1,7 +1,11 @@
-import sys
+decimal = int(input())
+binary = bin(decimal)
 
-t = input()
+parts = str(binary)[2:].split('0')
 
-print("Hello word")
+max = 0
+for part in parts:
+    if(len(part)>max):
+        max=len(part)
 
-print(t)
+print(max)
