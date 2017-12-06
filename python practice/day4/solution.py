@@ -1,27 +1,29 @@
-class Person:
-    def __init__(self, initialAge):
-        if initialAge > 0:
-            self.age = initialAge
-        else:
+class Person:    
+    def __init__(self,initialAge):
+        # Add some more code to run some checks on initialAge
+         self.i=initialAge        
+         if(self.i<0):
             print("Age is not valid, setting age to 0.")
-            self.age = 0
-#amIOld() should perform the following conditional actions:
+            self.i=0
+                  
+
     def amIOld(self):
-        if self.age < 13:
+        # Do some computations in here and print out the correct statement to the console
+        if(self.i<13):
             print("You are young.")
-        elif self.age < 18:
+        elif(self.i>=13 and self.i<18):
             print("You are a teenager.")
         else:
             print("You are old.")
 
     def yearPasses(self):
-        self.age += 1
-
-#T=Input Format,the number of test cases
-T = int(input())
-for i in range(0, T):
-    age = int(input())
-    p = Person(age)
+        # Increment the age of the person in here
+         self.i+=1
+        
+t = int(input())
+for i in range(0, t):
+    age = int(input())         
+    p = Person(age)  
     p.amIOld()
     for j in range(0, 3):
         p.yearPasses()
