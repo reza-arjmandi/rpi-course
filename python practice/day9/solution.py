@@ -1,3 +1,8 @@
+###########################################################
+#                                                         #
+#    Solving factorial problem with recursive function    #
+#                                                         #
+###########################################################
 def factorial(n):
     if n == 2:
         return 2
