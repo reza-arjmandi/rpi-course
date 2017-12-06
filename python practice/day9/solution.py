@@ -1,8 +1,11 @@
-def Factorial(N):
-    if(N==0):
-        return 1
-    else:
-        return Factorial(N-1)*N
-
-num = int(input())
-print(Factorial(num))
+###########################################################
+#                                                         #
+#    Solving factorial problem with recursive function    #
+#                                                         #
+###########################################################
+def factorial(n):
+    if n == 2:
+        return 2
+    return n * factorial(n - 1)
+  
+print(factorial(int(input())))
