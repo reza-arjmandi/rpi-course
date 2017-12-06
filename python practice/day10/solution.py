@@ -1,11 +1,20 @@
-decimal = int(input())
-binary = bin(decimal)
+################################################
+#                                              #
+#    Solution to find the maximum number of    #
+#      consecutive 1's in a decimal digit      #
+#                                              #
+################################################
 
-parts = str(binary)[2:].split('0')
+num = int(input())
+maximum = 0
+count = 0
 
-max = 0
-for part in parts:
-    if(len(part)>max):
-        max=len(part)
-
-print(max)
+while num > 0:
+    if num % 2 == 1:
+        count += 1
+        if count > maximum:
+            maximum = count
+    else:
+        count = 0
+    num = int(num / 2)
+print(maximum)
