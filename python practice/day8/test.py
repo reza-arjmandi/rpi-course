@@ -54,52 +54,42 @@ def TestBase():
 class test(unittest.TestCase): 
 
     def testCase1(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 		
     def testCase2(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 		
     def testCase3(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 		
     def testCase4(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 		
     def testCase5(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 		
     def testCase6(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 		
     def testCase7(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 	
     def testCase8(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 		
     def testCase9(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 		
     def testCase10(self):
-        self.maxDiff=None
         result = TestBase()
         self.assertEqual( result[0], result[1])
 
