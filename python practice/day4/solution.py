@@ -1,5 +1,4 @@
-class Person:
-    
+class Person:    
     def __init__(self,initialAge):
         # Add some more code to run some checks on initialAge
          self.i=initialAge        
@@ -27,6 +26,6 @@ for i in range(0, t):
     p = Person(age)  
     p.amIOld()
     for j in range(0, 3):
-        p.yearPasses()       
+        p.yearPasses()
     p.amIOld()
     print("")

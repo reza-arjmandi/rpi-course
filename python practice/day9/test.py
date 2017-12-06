@@ -1,16 +1,23 @@
+import os
 import unittest
 from subprocess import Popen, PIPE, STDOUT
-import string
 import random
 
-def string_generator(size=6, chars=string.ascii_uppercase + string.digits + " " + string.punctuation):
-    return ''.join(random.choice(chars) for _ in range(size))
-		
+def intMaker(min = 2 , max = 12):
+    return random.randint(min,max)
+
+def Factorial(N):
+    if(N==0):
+        return 1
+    else:
+        return Factorial(N-1)*N
+
 def TestBase():
-    stdIn = string_generator()
+    num = intMaker()
+    stdIn = str(num) + os.linesep
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = "Hello word\r\n" + stdIn + "\r\n"
+    expectedStdout = str(Factorial(num))+ os.linesep
     return (stdout.decode(), expectedStdout)
 	
 class test(unittest.TestCase): 

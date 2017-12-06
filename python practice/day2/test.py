@@ -2,6 +2,7 @@ import unittest
 from subprocess import Popen, PIPE, STDOUT
 import string
 import random
+import os
 
 def int_generator(min=0, max=100):
     return random.randint(min, max)
@@ -18,10 +19,10 @@ def TestBase():
     tax = mealCost * (taxPercent / 100.0)
     totalCost = mealCost + tip + tax
 
-    stdIn = str(mealCost) + "\r\n" + str(tipPercent) + "\r\n" + str(taxPercent) + "\r\n"
+    stdIn = str(mealCost) + os.linesep + str(tipPercent) + os.linesep + str(taxPercent) + os.linesep
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = "The total meal cost is {} dollars.".format(round(totalCost)) + "\r\n"
+    expectedStdout = "The total meal cost is {} dollars.".format(round(totalCost)) + os.linesep
     return (stdout.decode(), expectedStdout)
 
 class test(unittest.TestCase): 
