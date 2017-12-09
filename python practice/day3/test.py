@@ -2,6 +2,7 @@ import unittest
 from subprocess import Popen, PIPE, STDOUT
 import string
 import random
+import os
 
 def int_generator(min=0, max=100000):
     return random.randint(min, max)
@@ -23,7 +24,7 @@ def TestBase():
     
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(str(stdIn), encoding='utf-8'))[0]
-    expectedStdout = result + "\r\n"
+    expectedStdout = result + os.linesep
     return (stdout.decode(), expectedStdout)
 	
 class test(unittest.TestCase): 

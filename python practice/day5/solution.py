@@ -1,3 +1,7 @@
+#Input Format
 n = int(input())
-for i in range(1,11):
-    print("{n} x {i} = {answer}".format(n = n , i = i , answer = n*i))
+
+for i in range(1, 11):
+    #Output Format
+	print(str(n) + " x " + str(i) + " = " + str(n * i))
+

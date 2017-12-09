@@ -2,6 +2,7 @@ import unittest
 from subprocess import Popen, PIPE, STDOUT
 import string
 import random
+import os
 
 def string_generator(size=6, chars=string.ascii_uppercase + string.digits + " " + string.punctuation):
     return ''.join(random.choice(chars) for _ in range(size))
@@ -10,7 +11,7 @@ def TestBase():
     stdIn = string_generator()
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
-    expectedStdout = "Hello, World.\r\n" + stdIn + "\r\n"
+    expectedStdout = "Hello, World." + os.linesep + stdIn + os.linesep
     return (stdout.decode(), expectedStdout)
 	
 class test(unittest.TestCase): 

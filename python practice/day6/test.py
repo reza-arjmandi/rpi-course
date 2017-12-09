@@ -2,11 +2,11 @@ import unittest
 from subprocess import Popen, PIPE, STDOUT
 import string
 import random
+import os
 
 def stringMaker(minSize=2, maxSize=10000, chars=string.ascii_uppercase + string.digits + " " + string.punctuation):
     randomSize = random.randint(minSize , maxSize)
     return ''.join(random.choice(chars) for _ in range(randomSize)) 
-
 
 def TestBase():
     T = 10    
@@ -14,9 +14,9 @@ def TestBase():
     strings = []
     for i in range(T):
         strings.insert(i,stringMaker())
-        ourIn += strings[i] + "\r\n"
+        ourIn += strings[i] + os.linesep
         
-    stdIn = str(T) + "\r\n" + ourIn
+    stdIn = str(T) + os.linesep + ourIn
     p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
     
@@ -30,7 +30,7 @@ def TestBase():
         for j in range(1,len(strings[i]),2):
             ourOut += strings[i][j]
             
-        ourOut += "\r\n"
+        ourOut += os.linesep
         
     expectedStdout = ourOut
     return (stdout.decode(), expectedStdout)
