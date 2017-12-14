@@ -1,0 +1,13 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+function dweet(address){
+   	$.get(address);
+}
+</script>
+
+<h1>GPIO Control</h1>
+<h2>LEDs</h2>
+<input type='button' onClick='dweet("https://dweet.io/dweet/for/rpi_course_iot_projects?led0=1&led1=0&led2=0")' value='LED 1'/>
+<input type='button' onClick='dweet("https://dweet.io/dweet/for/rpi_course_iot_projects?led0=0&led1=1&led2=0")' value='LED 2'/>
+<input type='button' onClick='dweet("https://dweet.io/dweet/for/rpi_course_iot_projects?led0=0&led1=0&led2=1")' value='LED 3'/>

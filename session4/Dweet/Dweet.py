@@ -1,3 +1,12 @@
+######################################################################
+#       Dweet.py
+#
+# This project control 3 LEDs throughout the internet with
+# Dweet.io(IOT service).
+# You can see the client-side interface in Dweet.html or 
+# e-system.ir/iot/Dweet.html.
+######################################################################
+
 import time
 import dweepy
 import RPi.GPIO as GPIO
