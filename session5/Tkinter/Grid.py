@@ -5,7 +5,7 @@
 # in tkinter library
 ######################################################################
 
-from Tkinter import *
+from tkinter import *
 
 def show_entry_fields():
     v = StringVar()
