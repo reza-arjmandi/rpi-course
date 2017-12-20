@@ -1,6 +1,7 @@
 import zmq
 import RPi.GPIO as GPIO
 import threading
+import time
 
 cw = 1
 ccw = 2
@@ -34,6 +35,7 @@ def MotorAction():
         else:
             CCW_Rotate()
         pwm.ChangeDutyCycle(speed)
+        time.sleep(0.01)
 
 if __name__ == "__main__":
     t = threading.Thread(target=MotorAction)
