@@ -1,7 +1,21 @@
-import sys
+# Difference class: Store positive integers 
+class Difference:
+    # elements: integer array
+    def __init__(self, elements):
+        self.elements = elements
 
-t = input()
+# computeDifference method: Find the maximum difference between any 2 elements        
+    def computeDifference(self):
+        # maximumDifference: The maximum absolute difference
+        self.maximumDifference = abs(max(self.elements) - min(self.elements))
 
-print("Hello word")
+# Enter the number of integers
+size = input()
+# Enter the elements array
+elements = [int(x) for x in input().split(' ')]
 
-print(t)
+N = Difference(elements)
+N.computeDifference()
+
+# Printout the maximum absolute difference between any 2 numbers in N
+print(N.maximumDifference)
