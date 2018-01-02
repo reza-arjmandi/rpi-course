@@ -1,0 +1,41 @@
+<html>
+<head>
+
+<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="raphael.2.1.0.min.js"></script>
+<script src="justgage.1.0.1.min.js"></script>
+
+<script>
+function callback(response, status){
+	if (status == "success") {
+		temp = parseFloat(response["with"]["0"]["content"]["temp"]).toFixed(2);
+		g.refresh(temp);
+		setTimeout(getReading, 1000);
+	}
+	else {
+		alert("There was a problem");
+	}
+}
+
+function getReading(){
+   	$.get('https://dweet.io/get/dweets/for/RpiCourseDweet', callback);
+}
+</script>
+</head>	
+
+<body>
+<div id="gauge" class="200x160px"></div>
+
+<script>
+var g = new JustGage({
+    id: "gauge",
+    value: 0,
+    min: 10,
+    max: 60,
+    title: "Raspberry Pi Temp 'C"
+});
+getReading();
+</script>
+
+</body>
+</html>
