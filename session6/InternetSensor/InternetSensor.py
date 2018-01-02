@@ -15,6 +15,6 @@ def CpuTemp():
 
 while True:
     temp = CpuTemp()
-    print("Raspberry Pi Temp:", temp)
+    print("Raspberry Pi Temp: {}".format(temp))
     urllib2.urlopen("https://dweet.io/dweet/for/RpiCourseDweet?temp={}".format(temp))
     time.sleep(1)
