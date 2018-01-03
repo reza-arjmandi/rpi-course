@@ -29,4 +29,4 @@ def index():
 def index():
 	return template('justgage.1.0.1.min.js')
 
-run(host='192.168.43.49', port=80)
+run(host='0.0.0.0', port=80)
