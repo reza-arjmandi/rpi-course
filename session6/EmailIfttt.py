@@ -6,6 +6,8 @@
 ######################################################################
 
 import time,os
+import urllib2
+import urllib
 
 MaxTemp = 37.0
 EventName = 'cpu_hot'
@@ -13,10 +15,9 @@ BaseUrl = 'https://maker.ifttt.com/trigger/{}/with/key/{}'
 Key = 'cxotxZpzCKtUnd3m7tkIk4'
 
 def SendNotification(temp):
-    json = "'" + '{"value1" : "' + str(temp) + '"}' + "'"
     completeUrl = BaseUrl.format(EventName, Key)
-    cmd = 'curl --socks5-hostname localhost:9050 -H "Content-Type: application/json" -X POST -d {} {}'.format(json, completeUrl)
-    os.popen(cmd)
+    jsonData = urllib.urlencode({"value1" : str(temp)})
+    urllib2.urlopen(url=completeUrl, data=jsonData)
 
 def CpuTemp():
     dev = os.popen('/opt/vc/bin/vcgencmd measure_temp')
