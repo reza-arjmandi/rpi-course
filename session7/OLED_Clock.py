@@ -29,8 +29,6 @@ def DisplayMessage(line1, line2):
     global device
     image = Image.new('1', (width, height))
     draw = ImageDraw.Draw(image)
-    maxWidth, unused = draw.textsize(line1, font=largeFont)
-    #with canvas(deviccd e) as draw:
     draw.text((10, 0),  line1, font=smallFont, fill=255)
     draw.text((0, 20),  line2, font=largeFont, fill=255)
     device.image(image)
