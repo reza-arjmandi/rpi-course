@@ -1,9 +1,12 @@
 i = 4
 d = 4.0
 s = 'HackerRank '
-i+=int(input())
-d+=float(input())
-s+=input()
-print(i)
-print(d)
-print(s)
+
+integer = int(input())
+double = float(input())
+string = input()
+print(i+integer)
+print(d+double)
+print(s+string)
+
+
