@@ -22,7 +22,7 @@ def TestBase():
     if(stdIn % 2 == 0 and stdIn>20):
         result = "Not Weird"
     
-    p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
+    p = Popen(['python3', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(str(stdIn), encoding='utf-8'))[0]
     expectedStdout = result + os.linesep
     return (stdout.decode(), expectedStdout)
