@@ -20,7 +20,7 @@ def TestBase():
     totalCost = mealCost + tip + tax
 
     stdIn = str(mealCost) + os.linesep + str(tipPercent) + os.linesep + str(taxPercent) + os.linesep
-    p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
+    p = Popen(['python3', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
     expectedStdout = "The total meal cost is {} dollars.".format(round(totalCost)) + os.linesep
     return (stdout.decode(), expectedStdout)

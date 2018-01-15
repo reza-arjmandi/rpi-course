@@ -9,7 +9,7 @@ def string_generator(size=6, chars=string.ascii_uppercase + string.digits + " " 
 		
 def TestBase():
     stdIn = "4" + os.linesep  + "-1" + os.linesep + "10" + os.linesep + "16" + os.linesep + "18" + os.linesep
-    p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
+    p = Popen(['python3', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
     expectedStdout = "Age is not valid, setting age to 0." + os.linesep
     expectedStdout += "You are young." + os.linesep + "You are young." + os.linesep + os.linesep

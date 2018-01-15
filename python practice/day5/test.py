@@ -20,7 +20,7 @@ def TestBase():
     answer.append(number*9)
     answer.append(number*10)
     stdIn = str(number) + os.linesep
-    p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
+    p = Popen(['python3', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
 
     result1  = "{} x 1 = {}".format(number, answer[0]) + os.linesep

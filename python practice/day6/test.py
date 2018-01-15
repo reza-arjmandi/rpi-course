@@ -17,7 +17,7 @@ def TestBase():
         ourIn += strings[i] + os.linesep
         
     stdIn = str(T) + os.linesep + ourIn
-    p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
+    p = Popen(['python3', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
     
     ourOut = ''

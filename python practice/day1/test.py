@@ -22,7 +22,7 @@ def TestBase():
     s = 'HackerRank '
 
     stdIn = str(randInt) + os.linesep + str(randReal) + os.linesep + str(randStr) + os.linesep
-    p = Popen(['python', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
+    p = Popen(['python3', 'solution.py'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)   
     stdout = p.communicate(input=bytes(stdIn, encoding='utf-8'))[0]
     expectedStdout = str(randInt + i) + os.linesep + str(randReal + d).format("{:0.1}") + os.linesep + s + randStr + os.linesep
     return (stdout.decode(), expectedStdout)
