@@ -14,14 +14,14 @@ try:
 except: pass
 
 def CountCoins(img, cimg):
-    circles = None
+    circles = []
     try:
         circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,20,
                             param1=50,param2=30,minRadius=0,maxRadius=0)
     except:
         circles = cv2.HoughCircles(img, cv.CV_HOUGH_GRADIENT,1,20,param1=50,param2=30,minRadius=0,maxRadius=0)
 
-    if(circles == None):
+    if(len(circles) == 0):
         return
 
     circles = np.uint16(np.around(circles))
