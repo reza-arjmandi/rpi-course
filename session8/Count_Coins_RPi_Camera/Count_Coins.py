@@ -20,7 +20,7 @@ def CountCoins(img, cimg):
     except:
         circles = cv2.HoughCircles(img, cv.CV_HOUGH_GRADIENT,1,20,param1=50,param2=30,minRadius=0,maxRadius=0)
 
-    if(len(circles) == 0):
+    if(circles is None):
         return
 
     circles = np.uint16(np.around(circles))
