@@ -1,10 +1,10 @@
-[![13Th Raspberry Pi Course](13Th_Raspberry_Pi_Course.jpg)](https://evnd.co/NHSOZ)
+[![13Th Raspberry Pi Course](13Th_Raspberry_Pi_Course.jpg)](https://evnd.co/6m9E3)
 # rpi-course
 Raspberry Pi course projects
 
 This repository contains all projects of Raspberry Pi course which performed in each session.
-The Raspberry Pi course are held in iran at shahed university incubator.
-More about the course: https://evnd.co/NHSOZ
+The Raspberry Pi course are held in iran at shahed university incubator center.
+More about the course: https://evnd.co/6m9E3
 
 Run "Prerequisites.sh" on raspbian for install all prerequisites library.
 
