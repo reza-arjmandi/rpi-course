@@ -51,4 +51,4 @@ def index(led="n"):
     response += html_for_led(2) 
     return response
 
-run(host='192.168.43.189', port=80)
+run(host='0.0.0.0', port=80)

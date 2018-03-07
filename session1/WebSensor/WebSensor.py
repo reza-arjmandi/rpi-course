@@ -33,4 +33,4 @@ def index():
 def index():
     return template('jquery.min.js')
 
-run(host='192.168.43.189', port=80)
+run(host='0.0.0.0', port=80)
