@@ -28,11 +28,11 @@ def MotorAction():
     while(1):
         if(direction == 1):
             CW_Rotate()
-        elif(direction == 0)::
+        elif(direction == 0):
             CCW_Rotate()
         if(enable == 1):
             GPIO.output(enablePin, True)
-        elif(enable == 0)
+        elif(enable == 0):
             GPIO.output(enablePin, False)
         time.sleep(0.01)
 
@@ -59,8 +59,8 @@ if __name__ == "__main__":
                 direction = 1
             elif(buf == "counter clockwise"):
                 direction = 0
-            elif(buf == "start")
+            elif(buf == "start"):
                 enable = 1
-            elif(buf == "stop")
+            elif(buf == "stop"):
                 enable = 0
             print(buf)
