@@ -3,6 +3,7 @@ class Calculator:
     def power(n,p):
         if p < 0 or n < 0:
             print('n and p should be non-negative')
+            raise ValueError('A very specific bad thing happened.')
         z = 1 
         for i in range(0,p):
             z = z*n
