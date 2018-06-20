@@ -1,4 +1,4 @@
-[![17Th Raspberry Pi Course](17Th_Raspberry_Pi_Course.jpg)](https://evnd.co/p0RxA)
+[![17Th Raspberry Pi Course](17Th_Raspberry_Pi_Course.png)](https://evnd.co/p0RxA)
 # rpi-course
 Raspberry Pi course projects
 
